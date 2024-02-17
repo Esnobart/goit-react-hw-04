@@ -5,7 +5,7 @@ export const SearchBar = ({onSearch}) => {
         <header>
             <Formik initialValues={{ search: '' }} onSubmit={(values) => {
                 if (values.search.trim() === '') { return }
-                onSearch(values.search.trim())
+                onSearch(values.search)
             }}>
                 <Form>
                     <Field type="text" autoComplete="off" name="search" autoFocus placeholder="Search images and photos" />

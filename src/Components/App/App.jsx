@@ -38,11 +38,12 @@ function App() {
       });
         setImg(response.data.results);
         console.log(img)
-    } catch {
-      setErr(true)
-    } finally {
-      setLoading(false)
-    }
+      } catch {
+        setImg([])
+        setErr(true)
+      } finally {
+        setLoading(false)
+      }
     }
     search();
   }, [query, page])
