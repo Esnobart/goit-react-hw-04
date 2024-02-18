@@ -1,0 +1,18 @@
+.list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.list li {
+    list-style: none;
+    width: auto;
+    max-width: fit-content;
+    cursor: pointer
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+}

@@ -1,6 +1,8 @@
 import { useState } from "react"
 import { ImageModal } from "../ImageModal/ImageModal";
 import { ImageCard } from "../ImageCard/ImageCard";
+import { LoadMoreBtn } from "../LoadMoreBtn/LoadMoreBtn";
+import css from "./ImageGallery.module.css"
 
 export const ImageGallery = ({ items, loadMore }) => {
     const [modal, setModal] = useState(false);
@@ -16,14 +18,17 @@ export const ImageGallery = ({ items, loadMore }) => {
     }
 
     return (
-        <ul>
-            {items.map((item => (
-                <li key={item.id} onClick={() => openModal(item)}> 
-                    <ImageCard data={item} />
-                </li>
-            )))}
-            {img && (<ImageModal isOpen={modal} closeModal={closeModal} img={img} />)}
-            {items.length > 20 && <button onClick={loadMore}>Load More</button>} 
-        </ul>
+        console.log(items),
+        <div className={css.container}>
+                <ul className={css.list}>
+                    {items.map((item => (
+                        <li key={item.id} onClick={() => openModal(item)}>
+                            <ImageCard data={item} />
+                        </li>
+                    )))}
+                    {img && (<ImageModal isOpen={modal} closeModal={closeModal} img={img} />)}
+                </ul>
+                {items.length > 0 && <LoadMoreBtn loadMore={loadMore} />}
+            </div>
     )
 }
