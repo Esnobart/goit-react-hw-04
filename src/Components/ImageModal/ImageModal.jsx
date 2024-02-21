@@ -1,4 +1,5 @@
 import Modal from "react-modal"
+import css from './ImageModal.module.css'
 
 Modal.setAppElement('#root');
 
@@ -15,10 +16,10 @@ const stylesModal = {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        width: 'auto',
-        maxWidth: 'fit-content',
         height: 'auto',
-        maxHeight: 'fit-content'
+        maxHeight: 'fit-content',
+        width: 'auto',
+        maxWidth: 'fit-content'
     },
     overlay: {
         backgroundColor: 'rgba(0, 0, 0, 0.7)', 
@@ -29,7 +30,7 @@ const stylesModal = {
 export const ImageModal = ({isOpen, closeModal, img}) => {
     return (
         <Modal isOpen={isOpen} style={stylesModal} onRequestClose={closeModal}>
-            <img src={img.urls.small || "Default image"} alt={img.alt_description || "Default image description"} />
+            <img src={img?.urls?.regular} alt={img?.alt_description} className={css.image} />
         </Modal>
     )
 }
