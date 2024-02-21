@@ -60,7 +60,6 @@ function App() {
         if (response.data.results.length === 0) {
           setResults(true)
         }
-          console.log(img)
         } catch {
           setImg([])
           setErr(true)

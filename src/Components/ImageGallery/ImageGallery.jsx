@@ -5,7 +5,6 @@ export const ImageGallery = ({ items, openModal }) => {
     
 
     return (
-        console.log(items),
         <div className={css.container}>
                 <ul className={css.list}>
                     {items.map((item => (
