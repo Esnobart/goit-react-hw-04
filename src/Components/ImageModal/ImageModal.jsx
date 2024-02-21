@@ -29,7 +29,7 @@ const stylesModal = {
 export const ImageModal = ({isOpen, closeModal, img}) => {
     return (
         <Modal isOpen={isOpen} style={stylesModal} onRequestClose={closeModal}>
-            <img src={img.urls.small} alt={img.alt_description} />
+            <img src={img.urls.small || img.urls.small_s3 || img.urls.regular} alt={img.alt_description || "Image description"} />
         </Modal>
     )
 }

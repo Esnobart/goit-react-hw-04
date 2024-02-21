@@ -1,21 +1,8 @@
-import { useState } from "react"
-import { ImageModal } from "../ImageModal/ImageModal";
 import { ImageCard } from "../ImageCard/ImageCard";
-import { LoadMoreBtn } from "../LoadMoreBtn/LoadMoreBtn";
 import css from "./ImageGallery.module.css"
 
-export const ImageGallery = ({ items, loadMore }) => {
-    const [modal, setModal] = useState(false);
-    const [img, setImg] = useState(null);
-
-    const openModal = (image) => {
-        setImg(image);
-        setModal(true);
-    }
-
-    const closeModal = () => {
-        setModal(false);
-    }
+export const ImageGallery = ({ items, openModal }) => {
+    
 
     return (
         console.log(items),
@@ -26,9 +13,7 @@ export const ImageGallery = ({ items, loadMore }) => {
                             <ImageCard data={item} />
                         </li>
                     )))}
-                    {img && (<ImageModal isOpen={modal} closeModal={closeModal} img={img} />)}
                 </ul>
-                {items.length > 0 && <LoadMoreBtn loadMore={loadMore} />}
             </div>
     )
 }
